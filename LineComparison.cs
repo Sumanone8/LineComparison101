@@ -39,9 +39,13 @@ namespace LineComparison101
             {
                 Console.WriteLine("Line 1 is equal to Line 2");
             }
+            else if (length1 > length2)
+            {
+                Console.WriteLine("Line 1 is greater than Line 2");
+            }
             else
             {
-                Console.WriteLine("Line 1 is not equal to Line 2");
+                Console.WriteLine("Line 1 is less than Line 2");
             }
         }
                 static double ReadCoordinate(string coordinateName)
