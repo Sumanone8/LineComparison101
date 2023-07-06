@@ -9,23 +9,45 @@ namespace LineComparison101
             Console.WriteLine("Welcome to the Line Length Calculator!");
 
             // Input the coordinates of the endpoints
-            Console.Write("Enter the x-coordinate of the first endpoint: ");
-            double x1 = Convert.ToDouble(Console.ReadLine());
+            Console.WriteLine("Enter the coordinates for Line 1:");
+            double x1Line1 = ReadCoordinate("x1");
+            double y1Line1 = ReadCoordinate("y1");
+            double x2Line1 = ReadCoordinate("x2");
+            double y2Line1 = ReadCoordinate("y2");
 
-            Console.Write("Enter the y-coordinate of the first endpoint: ");
-            double y1 = Convert.ToDouble(Console.ReadLine());
-
-            Console.Write("Enter the x-coordinate of the second endpoint: ");
-            double x2 = Convert.ToDouble(Console.ReadLine());
-
-            Console.Write("Enter the y-coordinate of the second endpoint: ");
-            double y2 = Convert.ToDouble(Console.ReadLine());
+            // Input the coordinates of the endpoints for Line 2
+            Console.WriteLine("Enter the coordinates for Line 2:");
+            double x1Line2 = ReadCoordinate("x1");
+            double y1Line2 = ReadCoordinate("y1");
+            double x2Line2 = ReadCoordinate("x2");
+            double y2Line2 = ReadCoordinate("y2");
 
             // Calculate the length of the line using the distance formula
-            double deltaX = x2 - x1;
-            double deltaY = y2 - y1;
-            double length = Math.Sqrt((deltaX * deltaX) + (deltaY * deltaY));
-            Console.WriteLine("The length of the line is: " + length);
+            double deltaxLine1 = x2Line1 - x1Line1;
+            double deltayLine1 = y2Line1 - y1Line1;
+            double length1 = Math.Sqrt((deltaxLine1 * deltaxLine1) + (deltayLine1 * deltayLine1));
+
+            // Calculate the length of the line using the distance formula
+            double deltaxLine2 = x2Line2 - x1Line2;
+            double deltayLine2 = y2Line2 - y1Line2;
+            double length2 = Math.Sqrt((deltaxLine2 * deltaxLine2) + (deltayLine2 * deltayLine2));
+
+            Console.WriteLine("The length of the first line is: " + length1);
+            Console.WriteLine("The length of the second line is: " + length2);
+
+            if (length1 == length2)
+            {
+                Console.WriteLine("Line 1 is equal to Line 2");
+            }
+            else
+            {
+                Console.WriteLine("Line 1 is not equal to Line 2");
+            }
         }
+                static double ReadCoordinate(string coordinateName)
+                {
+                    Console.Write($"Enter the {coordinateName} coordinate: ");
+                    return Convert.ToDouble(Console.ReadLine());
+                }
     }
 }
